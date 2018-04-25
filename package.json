@@ -1,0 +1,12 @@
+{
+  "name": "seed-flux",
+  "version": "1.0.0",
+  "description": "Open e-science, workflow for collaborative academic writing, versioning, reviewing, research data management, time stamping and open access publishing",
+  "main": "index.js",
+  "repository": "https://github.com/qualiacode/seed-flux",
+  "author": "Martin Maga <contact@martinmaga.com>",
+  "license": "MIT",
+  "dependencies": {
+    "mermaid": "^8.0.0-rc.8"
+  }
+}

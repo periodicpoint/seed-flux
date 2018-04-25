@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="mermaid.min.css">
+</head>
+<body>
+  <div class="mermaid">
+  graph TB;
+    title[<u>SEED FLUX<br/>Scientific, discipline agnostic, e-science workflow for<br/> collaborative academic writing, versioning,<br/>reviewing, time stamping and publishing</u>]
+      subgraph prep phase;
+        alpha00(initial commit) --> alpha04(add yaml metadata);
+        alpha04 --> alpha05(commit);
+        alpha05 --> alpha06(push);
+        alpha06 --> alpha01(blockchain<br/>time stamp);
+        alpha01 --> alhpa11(branch out<br/>ce, re, vi, ...);
+      end
+      subgraph collaborative writing with git;
+        xa01 -- feature freeze --> alpha07(blockchain<br/>time stamp);
+        alpha07 --> b01;
+        xb01 -- issue stop --> alpha08(blockchain<br/>time stamp);
+        alpha08 --> c01;
+        xc01 -- stabel? --> alpha09(blockchain<br/>time stamp);
+        alpha09 --> d01;
+        subgraph copy editing phase;
+          alhpa11 --> a01(checkout master);
+          a01 --> xa01{new data, feature<br/>or commit};
+          xa01 --> a02(pull);
+          a02 --> a03(checkout ce);
+          a03 --> a04(pull);
+          a04 --> a05(checkout<br/>author/feature-label);
+          a05 --> a06(pull);
+          a06 --> beta01(write, edit);
+          beta01 --> beta02(add);
+          beta02 --> a07(commit);
+          a07 --> a08(push);
+          a08 --> a05;
+          a08 --> a09(merge<br/>author/feature-label);
+          a09 --> a10(checkout ce);
+          a10 --> a11(pull);
+          a11 --> a12(merge master);
+          a12 --> a01;
+        end
+        subgraph review phase;
+          b01(checkout master) --> xb01{new data, feature<br/>or commit};
+          xb01 --> b02(pull);
+          b02 --> b03(checkout vi);
+          b03 --> b04(pull);
+          b04 --> b05(checkout<br/>reviewer/issue-label);
+          b05 --> b06(pull);
+          b06 --> gamma01(write, edit);
+          gamma01 --> gamma02(add);
+          gamma02 --> b07(commit);
+          b07 --> b08(push);
+          b08 --> b05;
+          b08 --> b09(merge<br/>reviewer/issue-label);
+          b09 --> b10(checkout vi);
+          b10 --> b11(pull);
+          b11 --> b12(merge master);
+          b12 --> b01;
+        end
+        subgraph revision phase;
+          c01(checkout master) --> xc01{new data, bug,<br/>or commit};
+          xc01 --> c02(pull);
+          c02 --> c03(checkout re);
+          c03 --> c04(pull);
+          c04 --> c05(checkout<br/>author/fix-label);
+          c05 --> c06(pull);
+          c06 --> delta01(write, edit);
+          delta01 --> delta02(add);
+          delta02 --> c07(commit);
+          c07 --> c08(push);
+          c08 --> c05;
+          c08 --> c09(merge<br/>author/fix-label);
+          c09 --> c10(checkout re);
+          c10 --> c11(pull);
+          c11 --> c12(merge master);
+          c12 --> c01;
+        end
+        subgraph tidy up phase;
+          d01(checkout master) --> xd01{new data, bug,<br/>or commit};
+          xd01 --> d02(pull);
+          d02 --> d03(checkout tu);
+          d03 --> d04(pull);
+          d04 --> d05(checkout<br/>author/tidy-label);
+          d05 --> d06(pull);
+          d06 --> epsilon01(write, edit);
+          epsilon01 --> epsilon02(add);
+          epsilon02 --> d07(commit);
+          d07 --> d08(push);
+          d08 --> d05;
+          d08 --> d09(merge<br/>author/tidy-label);
+          d09 --> d10(checkout tu);
+          d10 --> d11(pull);
+          d11 --> d12(merge master);
+          d12 --> d01;
+        end
+      end
+      subgraph release phase;
+        xd01 -- clean? --> alhpa10(blockchain<br/>time stamp);
+        alhpa10 --> e01(generate outputs);
+        e01 --> alpha03(blockchain<br/>blockchain<br/>time stamp);
+        alpha03 --> e02(release);
+        e02 --> e03(doi);
+      end
+      e03 --> f01;
+      subgraph publishing phase;
+        f01(publish) --> f02(deploy);
+      end
+  </div>
+  <script src="mermaid.min.js"></script>
+  <script>
+    $(document).load(function() {
+      mermaid.initialize({
+        startOnLoad:true
+      }
+    });
+  </script>
+</body>
+</html>
