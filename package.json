@@ -7,6 +7,7 @@
   "author": "Martin Maga <contact@martinmaga.com>",
   "license": "MIT",
   "dependencies": {
+    "gitgraph.js": "^1.11.4",
     "mermaid": "^8.0.0-rc.8"
   }
 }
